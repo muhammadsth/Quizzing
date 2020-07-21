@@ -16,6 +16,8 @@ ws3 = wb.create_sheet("Chapter 4")
 
 d = ws.cell(4, 1, "Ikhla3")
 
+
+
 for row in ws.values:
     for value in row:
         print(value)
@@ -58,7 +60,18 @@ new_workbook("Microbiology", "Chapter1")
 
 
 def add_worksheet(namewb: str, namews: str):
-    """Adds a worksheet to an existing workbook"""
+    """Adds a new worksheet to an existing workbook. You do not need to add .xslx at the end of your workbook name :)))"""
+    #My initial struggle is making it understand WHICH workbook to take if it exists within the computer
+    actnamewb = namewb + ".xlsx"
+    if path.exists(actnamewb):
+        wb = P.load_workbook(actnamewb)
+    wb.create_sheet(namews)
+    wb.save(actnamewb)
+
+
+"""
+add_worksheet("Microbiology", "Chapter2" )
+""" #This function works becasuse it created a sheet called chapter2 in microbiology
 
 
 
@@ -71,4 +84,4 @@ def new_ans():
     ...
 
 
-wb1 = Workbook(True, True)
+
