@@ -16,6 +16,41 @@
   margin-top: 10%;
 }
 
+.logo {
+  width: 15vh;
+  height: 7.5vh;
+}
+
+.userData {
+  color: white;
+}
+
+.course {
+  border-width: 0.1vh;
+  border-color: #e0e0e0;
+  border-radius: 3px;
+  border-style: solid;
+  color: #5c5c5c;
+}
+
+.colorStrip {
+  width: 100%;
+  height: 1.5vh;
+  background-color: red;
+}
+
+.btn-holder {
+  padding-bottom: 2vh;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
 .title {
   margin-top: 10%;
   font-family: "Jazz LET," fantasy;
@@ -91,4 +126,8 @@
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+.navbar {
+  background-color: #1D1996;
 }

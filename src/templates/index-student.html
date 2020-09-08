@@ -10,11 +10,53 @@
     <title></title>
   </head>
   <body>
-    <div class="mainDiv">
-        <div ><img src="/static/images/webname.png" alt="quizzing" class="QuizzingImg">
-          <h2 class="title"><strong>Student Logged In</strong></h2>
+    <nav class="navbar justify-content-between" style="background-color: #1D1996">
+      <div class="container">
+        <a href="/" class="navbar-brand" ><img  class="logo" src="/static/images/webname.png"></a>
+        <div class="userData">
+          Hi, {{ user.username    }}
+          <a href="logout" class="btn btn-danger"> Logout</a>
         </div>
+      </div>
+
+    </nav>
+    <br>
+    <div class="container">
+      <a href="addCourse" class="btn btn-lg btn-outline-primary">Add Course +</a>
+      <br>
+      <br>
+      <div class="d-flex flex-wrap row justify-content-between">
+
+
+
+        <div class="col-lg-4 col-sm-4" style="margin-bottom: 3%">
+          <div class="course">
+            <div class="colorStrip">
+            </div>
+            <br>
+
+            <div class="container">
+              <strong>Course Code  </strong> <br>
+              <text> Course Name Goes here</text>
+              <br>
+              <br>
+              <strong>25</strong> Questions
+              <hr>
+              <div class="row  btn-holder  justify-content-around">
+                <a href="takeQuiz" style="margin-bottom:1%" class="btn btn-outline-danger">Take Quiz</a>
+                <a href="addQuestion" style="margin-bottom:1%" class="btn btn-outline-primary">Add Question</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
     </div>
+
+
 
   </body>
 </html>
