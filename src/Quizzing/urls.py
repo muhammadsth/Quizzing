@@ -19,11 +19,15 @@ from pages.views import home_view
 from pages.views import homepage_view
 from pages.views import signup_view
 from pages.views import login_handler
+from pages.views import logout_request
+from course.views import add_course_view
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('homepage/', homepage_view, name='homepage'),
     path('signup', signup_view, name='signup'),
     path('login', login_handler, name='login'),
+    path('logout', logout_request, name='logout'),
+    path('addcourse', add_course_view, name='addcourse'),
     path('admin/', admin.site.urls),
 ]
