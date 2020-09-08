@@ -4,15 +4,16 @@ import os
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
+from django.contrib.auth.forms import AuthenticationForm
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
     print(request, os.getcwd())
-    return render(request, "index.html", {"signup_form": SignUpForm, "messages" : ""})
+    return render(request, "index.html", {"signup_form": SignUpForm, "login_form": AuthenticationForm, "messages" : ""})
 
 def homepage_view(request):
     print("redirects to homepage")
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return render(request, "index-student.html", {})
 
 
@@ -35,7 +36,25 @@ def signup_view(request):
             login(request, user)
             return redirect('homepage')
         else:
-            return render(request, "index.html", {"signup_form": SignUpForm, "messages" : form.errors})
+            return render(request, "index.html", {"signup_form": SignUpForm, "login_form": AuthenticationForm, "messages" : form.errors})
     else:
         form = SignUpForm()
-    return redirect('home')
+    return redirect('/')
+
+
+def login_handler(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+        print("is it post?")
+        # print(request.POST)
+        # print(request.body)
+        print(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            return render(request, "index-student.html", {})
+        else:
+            return render(request, "index.html", {"signup_form": SignUpForm, "login_form": AuthenticationForm, "messages" : "wrong username or password"})
+    else:
+        return redirect('/')
