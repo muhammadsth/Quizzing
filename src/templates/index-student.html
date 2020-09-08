@@ -7,24 +7,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/styles/index.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-    <script src="/static/js/index.js"></script>
     <title></title>
   </head>
   <body>
-
-    </div>
     <div class="mainDiv">
         <div ><img src="/static/images/webname.png" alt="quizzing" class="QuizzingImg">
-          <h2 class="title"><strong>Master Your Subjects</strong></h2>
+          <h2 class="title"><strong>Student Logged In</strong></h2>
         </div>
     </div>
-
     <div class="button holder container">
       <div class="row justify-content-around">
         <div class="col-6 text-center">
-          <button onclick="hideError()" type="button" class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#joinForm">Join Us</button>
+          <button type="button" class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#joinForm">Join Us</button>
 
 
         </div>
@@ -45,28 +39,7 @@
                 </button>
               </div>
               <div class="modal-body">
-
-                <form method="post" action="signup">
-                  {% csrf_token %}
-                  {% for field in signup_form %}
-                    <p>
-                      {{ field.label_tag }}<br>
-                      {{ field }}
-                      {% if field.help_text %}
-                        <small style="color: grey">{{ field.help_text }}</small>
-                      {% endif %}
-                      {% for error in field.errors %}
-                        <p style="color: red">{{ error }}</p>
-                      {% endfor %}
-                    </p>
-                  {% endfor %}
-                  <button type="submit">Sign up</button>
-                </form>
-
-
-
-
-                <!-- <form class="" action="join/" method="post">
+                <form class="" action="/join" method="post">
                   <div class="form-group">
                     <span class="input-group-addon">username</span>
                     <input type="text" class="form-control" name="username" placeholder="Ahmed345" required="true">
@@ -77,20 +50,16 @@
                   </div>
                   <div class="form-group">
                     <span class="input-group-addon">password</span>
-                    <input type="password" class="form-control" name="password1" placeholder="***********" required="true">
+                    <input type="password" class="form-control" name="password" placeholder="***********" required="true">
                   </div>
                   <div class="form-group">
                     <span class="input-group-addon">re-type password</span>
-                    <input type="password" class="form-control" name="password2" placeholder="***********" required="true">
+                    <input type="password" class="form-control" name="re-password" placeholder="***********" required="true">
                   </div>
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Sign Up</button>
                   </div>
-                </form> -->
-
-
-
-
+                </form>
               </div>
 
             </div>
@@ -127,10 +96,6 @@
 
                 </div>
               </div>
-            </div>
-
-            <div id="errorBox" class=" errorBox">
-              <span class="popuptext" id="myPopup"> {{messages}} </span>
             </div>
 
   </body>
