@@ -53,7 +53,8 @@ def login_handler(request):
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
-            return render(request, "index-student.html", {})
+            login(request, user)
+            return redirect('homepage')
         else:
             return render(request, "index.html", {"signup_form": SignUpForm, "login_form": AuthenticationForm, "messages" : "wrong username or password"})
     else:
